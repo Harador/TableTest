@@ -3,6 +3,6 @@ import { IUser } from "./user.interface";
 
 
 export interface IUserResponse {
-    data: IUser[];
+    users: IUser[];
     meta: IMeta;
 }
