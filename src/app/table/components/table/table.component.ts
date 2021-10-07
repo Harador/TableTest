@@ -10,10 +10,10 @@ import {
   ChangeDetectorRef,
 } from '@angular/core';
 
-import { MyCellDirective } from '../directives/my-cell.directive';
+import { MyCellDirective } from 'src/app/directives/my-cell.directive';
 
-import { IUser } from '../interfaces/user-interface';
-import { IUsersConfig } from '../interfaces/user-config-interface';
+import { IUser } from 'src/app/interfaces/user-interface';
+import { IUsersConfig } from 'src/app/interfaces/user-config-interface';
 
 @Component({
   selector: 'app-table',
