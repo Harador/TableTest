@@ -3,7 +3,7 @@
         <ng-container *ngFor="let template of templatesArray">
             <td>
                 <ng-container 
-                    *ngTemplateOutlet="template; context:{ user: user }">
+                    *ngTemplateOutlet="template; context:{ data: user }">
                 </ng-container>
             </td>
         </ng-container>
