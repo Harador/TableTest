@@ -1,0 +1,11 @@
+<table *ngIf="users">
+    <tr *ngFor="let user of users">
+        <ng-container *ngFor="let template of templatesArray">
+            <td>
+                <ng-container 
+                    *ngTemplateOutlet="template; context:{ user: user }">
+                </ng-container>
+            </td>
+        </ng-container>
+    </tr>
+</table>
