@@ -18,7 +18,7 @@ export class UserService {
   ) { }
 
   public gets(params?: IQueryParams):Observable<IUserResponse>{
-    return this._http.get<IUserResponse>('').pipe(
+    return this._http.get<IUserResponse>('api/data').pipe(
       map((data)=>{
         return data = this.changeResponse(data, params);
       })
@@ -30,7 +30,7 @@ export class UserService {
     let meta = data.meta;
 
     meta = {
-      page: params?.page || 0,
+      page: params?.page || 1,
       pageSize: params?.pageSize || 4,
       items: users.length,
       pages: Math.ceil(users.length / (params?.pageSize || 4)),
