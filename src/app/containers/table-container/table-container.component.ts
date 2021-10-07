@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IQueryParams } from 'src/app/interfaces/query-params.interface';
+import { IUsersConfig } from 'src/app/interfaces/user-config.interface';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,8 +10,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class TableContainerComponent implements OnInit {
 
-  public config: any = {
-    fetch: ()=>{return this._userService.gets()}
+  public config: IUsersConfig = {
+    fetch: (params?: IQueryParams)=>{return this._userService.gets(params)}
   }
 
   constructor(

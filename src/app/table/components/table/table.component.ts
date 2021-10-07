@@ -14,6 +14,7 @@ import { MyCellDirective } from 'src/app/directives/my-cell.directive';
 
 import { IUser } from 'src/app/interfaces/user.interface';
 import { IUsersConfig } from 'src/app/interfaces/user-config.interface';
+import { IMeta } from 'src/app/interfaces/meta.interface';
 
 @Component({
   selector: 'app-table',
@@ -30,6 +31,8 @@ export class TableComponent implements OnInit, AfterViewInit {
   public queryList!: QueryList<MyCellDirective>;
 
   public users!: IUser[];
+
+  public meta!: IMeta;
 
   //массив с ссылками на шаблоны ячеек таблицы
   public templatesArray!: TemplateRef<MyCellDirective>[];
@@ -50,8 +53,13 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   public loadUsers(): void {
-    this.config.fetch().subscribe(
-      (users:any) => { this.users = users }
+    this.config.fetch(this.meta).subscribe(
+      (data) => {
+        console.log(data)
+        this.users = data.users;
+        this.meta = data.meta;
+        this._changeRef.markForCheck();
+      }
     );
   }
 
