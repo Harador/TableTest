@@ -5,18 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableContainerComponent } from './table-container/table-container.component';
 import { MyCellDirective } from './directives/my-cell.directive';
-import { TableComponent } from './table/table.component';
+import { TableModule } from './table/table.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableContainerComponent,
     MyCellDirective,
-    TableComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
