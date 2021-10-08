@@ -1,16 +1,22 @@
-<table *ngIf="users">
-    <tr *ngFor="let user of users">
-        <ng-container *ngFor="let template of templatesArray">
-            <td>
-                <ng-container 
-                    *ngTemplateOutlet="template; context:{ data: user }">
-                </ng-container>
-            </td>
-        </ng-container>
-    </tr>
-</table>
+<div class="wrapper">
+    <table *ngIf="users">
+        <tr *ngFor="let user of users">
+            <ng-container *ngFor="let template of templatesArray">
+                <td>
+                    <ng-container 
+                        *ngTemplateOutlet="template; context:{ data: user }">
+                    </ng-container>
+                </td>
+            </ng-container>
+        </tr>
+    </table>
 
-<div *ngIf="meta">
-    {{meta|json}}
+
+    <app-paginator [meta]="meta"
+        (pageEvent)="paginatorEvent($event)">
+    </app-paginator>
+
 </div>
+
+
 

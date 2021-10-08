@@ -1,0 +1,22 @@
+<div class="paginator">
+    <button [disabled]="isDecreaseDisabled"
+        (click)="toStart()">
+        <<
+    </button>
+
+    <button [disabled]="isDecreaseDisabled" 
+        (click)="turnPage(-1)"> 
+        < 
+    </button>
+
+    <span>{{this.meta?.page || 1}} of {{this.meta?.pages || 1}}</span>
+
+    <button [disabled]="isIncrementDisabled"
+        (click)="turnPage(1)"> 
+        > 
+    </button>
+    <button [disabled]="isIncrementDisabled" 
+        (click)="toEnd()"> 
+        >> 
+    </button>
+</div>

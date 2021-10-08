@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { PaginatorModule } from '../paginator/paginator.module';
+
 import { TableComponent } from './components/table/table.component'
+
 
 
 @NgModule({
@@ -9,6 +13,7 @@ import { TableComponent } from './components/table/table.component'
   ],
   imports: [
     CommonModule,
+    PaginatorModule,
   ],
   exports: [
     TableComponent,

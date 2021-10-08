@@ -42,7 +42,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadUsers();
+    this._loadUsers();
   }
 
   ngAfterViewInit(): void {
@@ -52,7 +52,12 @@ export class TableComponent implements OnInit, AfterViewInit {
     this._changeRef.detectChanges();
   }
 
-  public loadUsers(): void {
+  public paginatorEvent(meta: IMeta): void {
+    this.meta = meta;
+    this._loadUsers();
+  }
+
+  private _loadUsers(): void {
     this.config.fetch(this.meta).subscribe(
       (data) => {
         console.log(data)
